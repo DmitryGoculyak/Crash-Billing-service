@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.31.1
-// source: pkg/proto/billing.proto
+// source: billing/billing.proto
 
-package proto
+package billing
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -31,7 +31,7 @@ type CreateWalletRequest struct {
 
 func (x *CreateWalletRequest) Reset() {
 	*x = CreateWalletRequest{}
-	mi := &file_pkg_proto_billing_proto_msgTypes[0]
+	mi := &file_billing_billing_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *CreateWalletRequest) String() string {
 func (*CreateWalletRequest) ProtoMessage() {}
 
 func (x *CreateWalletRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_proto_billing_proto_msgTypes[0]
+	mi := &file_billing_billing_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *CreateWalletRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateWalletRequest.ProtoReflect.Descriptor instead.
 func (*CreateWalletRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_proto_billing_proto_rawDescGZIP(), []int{0}
+	return file_billing_billing_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateWalletRequest) GetUserId() string {
@@ -73,50 +73,6 @@ func (x *CreateWalletRequest) GetCurrencyCode() string {
 	return ""
 }
 
-type GetWalletRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWalletRequest) Reset() {
-	*x = GetWalletRequest{}
-	mi := &file_pkg_proto_billing_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWalletRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWalletRequest) ProtoMessage() {}
-
-func (x *GetWalletRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_proto_billing_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWalletRequest.ProtoReflect.Descriptor instead.
-func (*GetWalletRequest) Descriptor() ([]byte, []int) {
-	return file_pkg_proto_billing_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetWalletRequest) GetUserId() string {
-	if x != nil {
-		return x.UserId
-	}
-	return ""
-}
-
 type WalletResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -129,7 +85,7 @@ type WalletResponse struct {
 
 func (x *WalletResponse) Reset() {
 	*x = WalletResponse{}
-	mi := &file_pkg_proto_billing_proto_msgTypes[2]
+	mi := &file_billing_billing_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -141,7 +97,7 @@ func (x *WalletResponse) String() string {
 func (*WalletResponse) ProtoMessage() {}
 
 func (x *WalletResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_proto_billing_proto_msgTypes[2]
+	mi := &file_billing_billing_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -154,7 +110,7 @@ func (x *WalletResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WalletResponse.ProtoReflect.Descriptor instead.
 func (*WalletResponse) Descriptor() ([]byte, []int) {
-	return file_pkg_proto_billing_proto_rawDescGZIP(), []int{2}
+	return file_billing_billing_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *WalletResponse) GetId() string {
@@ -185,48 +141,92 @@ func (x *WalletResponse) GetBalance() float64 {
 	return 0
 }
 
-var File_pkg_proto_billing_proto protoreflect.FileDescriptor
+type GetWalletRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        string                 `protobuf:"bytes,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
 
-const file_pkg_proto_billing_proto_rawDesc = "" +
+func (x *GetWalletRequest) Reset() {
+	*x = GetWalletRequest{}
+	mi := &file_billing_billing_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWalletRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWalletRequest) ProtoMessage() {}
+
+func (x *GetWalletRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_billing_billing_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWalletRequest.ProtoReflect.Descriptor instead.
+func (*GetWalletRequest) Descriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetWalletRequest) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+var File_billing_billing_proto protoreflect.FileDescriptor
+
+const file_billing_billing_proto_rawDesc = "" +
 	"\n" +
-	"\x17pkg/proto/billing.proto\x12\abilling\"Q\n" +
+	"\x15billing/billing.proto\x12\abilling\"Q\n" +
 	"\x13CreateWalletRequest\x12\x16\n" +
 	"\x06userId\x18\x01 \x01(\tR\x06userId\x12\"\n" +
-	"\fcurrencyCode\x18\x02 \x01(\tR\fcurrencyCode\"*\n" +
-	"\x10GetWalletRequest\x12\x16\n" +
-	"\x06userId\x18\x01 \x01(\tR\x06userId\"v\n" +
+	"\fcurrencyCode\x18\x02 \x01(\tR\fcurrencyCode\"v\n" +
 	"\x0eWalletResponse\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
 	"\x06userId\x18\x02 \x01(\tR\x06userId\x12\"\n" +
 	"\fcurrencyCode\x18\x03 \x01(\tR\fcurrencyCode\x12\x18\n" +
-	"\abalance\x18\x04 \x01(\x01R\abalance2\x98\x01\n" +
+	"\abalance\x18\x04 \x01(\x01R\abalance\"*\n" +
+	"\x10GetWalletRequest\x12\x16\n" +
+	"\x06userId\x18\x01 \x01(\tR\x06userId2\x98\x01\n" +
 	"\x0eBillingService\x12E\n" +
 	"\fCreateWallet\x12\x1c.billing.CreateWalletRequest\x1a\x17.billing.WalletResponse\x12?\n" +
-	"\tGetWallet\x12\x19.billing.GetWalletRequest\x1a\x17.billing.WalletResponseB!Z\x1fCrash-Billing-service/pkg/protob\x06proto3"
+	"\tGetWallet\x12\x19.billing.GetWalletRequest\x1a\x17.billing.WalletResponseB0Z.github.com/DmitryGoculyak/Crash-Protos/billingb\x06proto3"
 
 var (
-	file_pkg_proto_billing_proto_rawDescOnce sync.Once
-	file_pkg_proto_billing_proto_rawDescData []byte
+	file_billing_billing_proto_rawDescOnce sync.Once
+	file_billing_billing_proto_rawDescData []byte
 )
 
-func file_pkg_proto_billing_proto_rawDescGZIP() []byte {
-	file_pkg_proto_billing_proto_rawDescOnce.Do(func() {
-		file_pkg_proto_billing_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_proto_billing_proto_rawDesc), len(file_pkg_proto_billing_proto_rawDesc)))
+func file_billing_billing_proto_rawDescGZIP() []byte {
+	file_billing_billing_proto_rawDescOnce.Do(func() {
+		file_billing_billing_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_billing_billing_proto_rawDesc), len(file_billing_billing_proto_rawDesc)))
 	})
-	return file_pkg_proto_billing_proto_rawDescData
+	return file_billing_billing_proto_rawDescData
 }
 
-var file_pkg_proto_billing_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
-var file_pkg_proto_billing_proto_goTypes = []any{
+var file_billing_billing_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_billing_billing_proto_goTypes = []any{
 	(*CreateWalletRequest)(nil), // 0: billing.CreateWalletRequest
-	(*GetWalletRequest)(nil),    // 1: billing.GetWalletRequest
-	(*WalletResponse)(nil),      // 2: billing.WalletResponse
+	(*WalletResponse)(nil),      // 1: billing.WalletResponse
+	(*GetWalletRequest)(nil),    // 2: billing.GetWalletRequest
 }
-var file_pkg_proto_billing_proto_depIdxs = []int32{
+var file_billing_billing_proto_depIdxs = []int32{
 	0, // 0: billing.BillingService.CreateWallet:input_type -> billing.CreateWalletRequest
-	1, // 1: billing.BillingService.GetWallet:input_type -> billing.GetWalletRequest
-	2, // 2: billing.BillingService.CreateWallet:output_type -> billing.WalletResponse
-	2, // 3: billing.BillingService.GetWallet:output_type -> billing.WalletResponse
+	2, // 1: billing.BillingService.GetWallet:input_type -> billing.GetWalletRequest
+	1, // 2: billing.BillingService.CreateWallet:output_type -> billing.WalletResponse
+	1, // 3: billing.BillingService.GetWallet:output_type -> billing.WalletResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -234,26 +234,26 @@ var file_pkg_proto_billing_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_pkg_proto_billing_proto_init() }
-func file_pkg_proto_billing_proto_init() {
-	if File_pkg_proto_billing_proto != nil {
+func init() { file_billing_billing_proto_init() }
+func file_billing_billing_proto_init() {
+	if File_billing_billing_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_proto_billing_proto_rawDesc), len(file_pkg_proto_billing_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_billing_billing_proto_rawDesc), len(file_billing_billing_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_pkg_proto_billing_proto_goTypes,
-		DependencyIndexes: file_pkg_proto_billing_proto_depIdxs,
-		MessageInfos:      file_pkg_proto_billing_proto_msgTypes,
+		GoTypes:           file_billing_billing_proto_goTypes,
+		DependencyIndexes: file_billing_billing_proto_depIdxs,
+		MessageInfos:      file_billing_billing_proto_msgTypes,
 	}.Build()
-	File_pkg_proto_billing_proto = out.File
-	file_pkg_proto_billing_proto_goTypes = nil
-	file_pkg_proto_billing_proto_depIdxs = nil
+	File_billing_billing_proto = out.File
+	file_billing_billing_proto_goTypes = nil
+	file_billing_billing_proto_depIdxs = nil
 }

@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"Crash-Billing-service/internal/service"
-	"Crash-Billing-service/pkg/proto"
+	proto "Crash-Billing-service/pkg/proto"
 	"context"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
