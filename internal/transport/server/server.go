@@ -2,7 +2,7 @@ package server
 
 import (
 	"Crash-Billing-service/internal/interceptors"
-	"Crash-Billing-service/pkg/proto"
+	proto "Crash-Billing-service/pkg/proto"
 	"fmt"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

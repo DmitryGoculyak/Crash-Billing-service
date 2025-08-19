@@ -52,7 +52,7 @@ func (h *BillingHandler) GetWallet(ctx context.Context, req *proto.GetWalletRequ
 	createCtx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
 
-	user, err := h.service.GetWallet(createCtx, req.UserId)
+	wallet, err := h.service.GetWallet(createCtx, req.UserId)
 	if err != nil {
 		h.log.Error("Failed to get wallet",
 			zap.String("userId", req.UserId),
@@ -62,15 +62,15 @@ func (h *BillingHandler) GetWallet(ctx context.Context, req *proto.GetWalletRequ
 	}
 
 	h.log.Info("Get  wallet successfully",
-		zap.String("walletId", user.Id),
-		zap.String("userId", user.UserId),
-		zap.String("currency", user.CurrencyCode),
-		zap.Float64("balance", user.Balance),
+		zap.String("walletId", wallet.Id),
+		zap.String("userId", wallet.UserId),
+		zap.String("currency", wallet.CurrencyCode),
+		zap.Float64("balance", wallet.Balance),
 	)
 	return &proto.WalletResponse{
-		Id:           user.Id,
-		UserId:       user.UserId,
-		CurrencyCode: user.CurrencyCode,
-		Balance:      user.Balance,
+		UserId:       wallet.UserId,
+		Id:           wallet.Id,
+		CurrencyCode: wallet.CurrencyCode,
+		Balance:      wallet.Balance,
 	}, nil
 }
