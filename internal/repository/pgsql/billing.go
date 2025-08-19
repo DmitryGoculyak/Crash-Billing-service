@@ -17,8 +17,8 @@ func NewBillingRepo(db *sqlx.DB) repository.BillingRepository {
 
 func (r *BillingRepo) CreateWallet(ctx context.Context, userId, currencyCode string) (*entities.Wallet, error) {
 	var createWallet entities.Wallet
-	err := r.db.GetContext(ctx, &createWallet, "INSERT INTO wallets(currency_code, balance) VALUES ($1, $2) RETURNING id",
-		currencyCode, userId)
+	err := r.db.GetContext(ctx, &createWallet, "INSERT INTO wallets(user_id, currency_code) VALUES ($1, $2) RETURNING id",
+		userId, currencyCode)
 	if err != nil {
 		return nil, err
 	}
@@ -27,7 +27,7 @@ func (r *BillingRepo) CreateWallet(ctx context.Context, userId, currencyCode str
 
 func (r *BillingRepo) GetWallet(ctx context.Context, userId string) (*entities.Wallet, error) {
 	var getWallet entities.Wallet
-	err := r.db.GetContext(ctx, &getWallet, "SELECT * FROM wallets WHERE id = $1", userId)
+	err := r.db.GetContext(ctx, &getWallet, "SELECT * FROM wallets WHERE user_id = $1", userId)
 	if err != nil {
 		return nil, err
 	}
